@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Veridon Global — Building Connections Through Impactful Conferences</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#10202A;
+    --paper:#F0F2EC;
+    --teal:#1F5C52;
+    --teal-deep:#153F38;
+    --coral:#D6482F;
+    --gold:#C99A3E;
+    --mist:#DBE1D8;
+    --mist-line: rgba(16,32,42,0.12);
+    --paper-card:#FAFAF6;
+    --display: 'Newsreader', serif;
+    --body: 'Inter', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+    --maxw: 1240px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    position:relative;
+  }
+  body::before{
+    content:"";
+    position:fixed; inset:0; z-index:9998; pointer-events:none;
+    opacity:.035; mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .scroll-progress{
+    position:fixed; top:0; left:0; height:2px; width:0%;
+    background:linear-gradient(90deg, var(--coral), var(--gold));
+    z-index:9999; transition:width .1s linear;
+  }
+  ::selection{ background:var(--coral); color:#fff; }
+  img,svg{display:block; max-width:100%;}
+  a{color:inherit; text-decoration:none;}
+  ul{list-style:none;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 32px;}
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--teal);
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px; height:1px;
+    background:var(--coral);
+    display:inline-block;
+  }
+  h1,h2,h3,h4{
+    font-family:var(--display);
+    font-weight:500;
+    color:var(--ink);
+    line-height:1.12;
+    letter-spacing:-0.01em;
+  }
+  .btn{
+    position:relative;
+    font-family:var(--mono);
+    font-size:13px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    padding:14px 26px;
+    border-radius:2px;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    border:1px solid var(--ink);
+    transition:transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s ease, color .3s ease, border-color .3s ease;
+    cursor:pointer;
+    white-space:nowrap;
+    overflow:hidden;
+    isolation:isolate;
+  }
+  .btn::before{
+    content:""; position:absolute; inset:0; z-index:-1;
+    background:var(--coral);
+    transform:translateX(-101%);
+    transition:transform .38s cubic-bezier(.65,0,.35,1);
+  }
+  .btn-solid{ background:var(--ink); color:var(--paper); }
+  .btn-solid:hover{ color:#fff; border-color:var(--coral); transform:translateY(-2px); box-shadow:0 14px 28px -12px rgba(214,72,47,0.45); }
+  .btn-solid:hover::before{ transform:translateX(0); }
+  .btn-line{ background:transparent; color:var(--ink); }
+  .btn-line::before{ background:var(--ink); }
+  .btn-line:hover{ color:var(--paper); transform:translateY(-2px); box-shadow:0 14px 28px -14px rgba(16,32,42,0.35); }
+  .btn-line:hover::before{ transform:translateX(0); }
+  .btn-arrow{ transition:transform .3s ease; }
+  .btn:hover .btn-arrow{ transform:translateX(4px); }
+  section{ position:relative; }
+
+  /* ===== TOP BAR ===== */
+  .topbar{
+    background:var(--ink);
+    color:var(--mist);
+    font-family:var(--mono);
+    font-size:12px;
+  }
+  .topbar .wrap{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:9px 32px; flex-wrap:wrap; gap:8px;
+  }
+  .topbar-contacts{ display:flex; gap:22px; flex-wrap:wrap; }
+  .topbar-contacts a:hover{ color:var(--gold); }
+  .topbar-social a{ opacity:.8; transition:opacity .2s; }
+  .topbar-social a:hover{ opacity:1; color:var(--gold); }
+
+  /* ===== NAV ===== */
+  header.nav{
+    background:rgba(240,242,236,0.75);
+    backdrop-filter:blur(14px) saturate(1.4);
+    -webkit-backdrop-filter:blur(14px) saturate(1.4);
+    border-bottom:1px solid var(--mist-line);
+    position:sticky; top:0; z-index:100;
+    transition:box-shadow .35s ease, padding .35s ease;
+  }
+  header.nav.scrolled{ box-shadow:0 8px 28px -18px rgba(16,32,42,0.35); }
+  .nav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 32px;
+    transition:padding .35s ease;
+  }
+  header.nav.scrolled .wrap{ padding:11px 32px; }
+  .logo-mark{ transition:transform .5s cubic-bezier(.2,.8,.2,1); }
+  .logo:hover .logo-mark{ transform:rotate(90deg); }
+  .logo{ display:flex; align-items:center; gap:10px; }
+  .logo-mark{ width:30px; height:30px; flex-shrink:0; }
+  .logo-text{
+    font-family:var(--display);
+    font-size:20px;
+    letter-spacing:0.02em;
+    font-weight:600;
+  }
+  .logo-text span{ color:var(--teal); }
+  nav.links{ display:flex; align-items:center; gap:34px; }
+  nav.links a{
+    font-size:14px; font-weight:500; color:var(--ink);
+    position:relative; padding:4px 0;
+  }
+  nav.links a:not(.btn)::after{
+    content:""; position:absolute; left:0; bottom:0; width:0; height:1px;
+    background:var(--coral); transition:width .25s ease;
+  }
+  nav.links a:not(.btn):hover::after{ width:100%; }
+  .nav-cta{ display:flex; align-items:center; gap:18px; }
+  .menu-toggle{ display:none; background:none; border:none; cursor:pointer; }
+  .menu-toggle span{ display:block; width:24px; height:2px; background:var(--ink); margin:5px 0; }
+
+  /* ===== HERO ===== */
+  .hero{ padding:96px 0 60px; overflow:hidden; position:relative; }
+  .hero-mesh{
+    position:absolute; inset:-10% -10% auto -10%; height:130%;
+    z-index:0; pointer-events:none;
+    transition:transform .6s cubic-bezier(.2,.8,.2,1);
+  }
+  .hero-mesh span{
+    position:absolute; border-radius:50%; filter:blur(70px);
+    animation:drift 16s ease-in-out infinite alternate;
+  }
+  .hero-mesh span:nth-child(1){ width:360px; height:360px; background:rgba(31,92,82,0.22); top:0; left:8%; }
+  .hero-mesh span:nth-child(2){ width:300px; height:300px; background:rgba(214,72,47,0.14); top:20%; right:4%; animation-delay:-4s; }
+  .hero-mesh span:nth-child(3){ width:260px; height:260px; background:rgba(201,154,62,0.16); bottom:-6%; left:32%; animation-delay:-9s; }
+  @keyframes drift{
+    0%{ transform:translate(0,0) scale(1); }
+    100%{ transform:translate(24px,-18px) scale(1.08); }
+  }
+  .hero .wrap{ display:grid; grid-template-columns:1.05fr 0.95fr; gap:40px; align-items:center; position:relative; z-index:1; }
+  .hero-copy h1{
+    font-size:clamp(38px, 4.6vw, 64px);
+    margin:20px 0 24px;
+  }
+  .hero-copy h1 em{ color:var(--teal); font-style:italic; }
+  .hero-copy p{ font-size:17px; max-width:490px; color:#38474F; margin-bottom:34px; }
+  .hero-ctas{ display:flex; gap:16px; flex-wrap:wrap; margin-bottom:52px; }
+  .hero-stats{
+    display:flex; gap:40px; flex-wrap:wrap;
+    border-top:1px solid var(--mist-line); padding-top:26px;
+  }
+  .hero-stats div{
+    opacity:0; transform:translateY(10px);
+    animation:statIn .6s ease forwards;
+  }
+  .hero-stats div:nth-child(1){ animation-delay:.15s; }
+  .hero-stats div:nth-child(2){ animation-delay:.32s; }
+  .hero-stats div:nth-child(3){ animation-delay:.49s; }
+  @keyframes statIn{ to{ opacity:1; transform:translateY(0); } }
+  .hero-stats div strong{
+    font-family:var(--display); font-size:30px; display:block; color:var(--ink); font-weight:600;
+    position:relative;
+  }
+  .hero-stats div span{
+    font-family:var(--mono); font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--teal);
+  }
+
+  /* Signature globe graphic */
+  .globe-wrap{ position:relative; display:flex; align-items:center; justify-content:center; }
+  .globe-caption{
+    position:absolute; bottom:-6px; left:50%; transform:translateX(-50%);
+    font-family:var(--mono); font-size:11px; color:#5B6B72; letter-spacing:.05em;
+    text-align:center; white-space:nowrap;
+  }
+  .node-label{
+    font-family:var(--mono); font-size:10px; fill:#38474F; letter-spacing:.03em;
+  }
+  .node-dot{ fill:var(--coral); }
+  .globe-line{ stroke:var(--teal); stroke-width:1; fill:none; stroke-dasharray:3 4; opacity:.55; }
+  .globe-lat{ stroke:var(--mist-line); stroke-width:1; fill:none; }
+  .globe-outline{ stroke:var(--ink); stroke-opacity:.18; stroke-width:1; fill:none; }
+  .pulse{
+    animation:pulse 2.6s ease-in-out infinite;
+    transform-origin:center;
+  }
+  .pulse.d2{ animation-delay:.5s; }
+  .pulse.d3{ animation-delay:1s; }
+  .pulse.d4{ animation-delay:1.5s; }
+  .pulse.d5{ animation-delay:.8s; }
+  @keyframes pulse{
+    0%,100%{ opacity:.55; r:2.4; }
+    50%{ opacity:1; r:4.2; }
+  }
+  .globe-spin{ animation:spin 90s linear infinite; transform-origin:center; }
+  @keyframes spin{ to{ transform:rotate(360deg); } }
+
+  /* ===== MARQUEE / TICKER ===== */
+  .ticker{
+    background:var(--teal-deep); color:var(--paper);
+    padding:12px 0; overflow:hidden; white-space:nowrap;
+  }
+  .ticker-track{
+    display:inline-flex; gap:48px; animation:ticker 32s linear infinite;
+    font-family:var(--mono); font-size:12.5px; letter-spacing:.05em; text-transform:uppercase;
+  }
+  .ticker-track span{ display:inline-flex; align-items:center; gap:10px; color:#D8E6E1; }
+  .ticker-track span::before{ content:"◆"; color:var(--gold); font-size:8px; }
+  @keyframes ticker{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+
+  /* ===== SECTION HEADERS ===== */
+  .side-label{
+    position:absolute; top:50%; right:24px; transform:translateY(-50%) rotate(90deg); transform-origin:right center;
+    font-family:var(--mono); font-size:11px; letter-spacing:.14em; color:#5B6B72; opacity:.55;
+    white-space:nowrap; display:none;
+  }
+  @media (min-width:1180px){ .side-label{ display:block; } }
+  .section-head{ max-width:640px; margin-bottom:52px; }
+  .section-head h2{ font-size:clamp(28px,3.2vw,40px); margin-top:16px; }
+  .section-head p{ color:#465156; margin-top:16px; font-size:15.5px; }
+  .section-pad{ padding:100px 0; }
+
+  /* ===== SERVICES ===== */
+  .services-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--mist-line); border:1px solid var(--mist-line); }
+  .service-card{
+    background:var(--paper); padding:40px 34px; position:relative; z-index:1;
+    transition:background .35s ease, transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease;
+  }
+  .service-card:hover{
+    background:var(--paper-card); transform:translateY(-6px); z-index:2;
+    box-shadow:0 24px 48px -24px rgba(16,32,42,0.22);
+  }
+  .service-index{ font-family:var(--mono); font-size:12px; color:var(--coral); margin-bottom:26px; display:block; }
+  .service-card h3{ font-size:23px; margin-bottom:14px; }
+  .service-card p{ font-size:14.5px; color:#465156; }
+  .service-icon{ width:36px; height:36px; margin-bottom:22px; transition:transform .45s cubic-bezier(.2,.8,.2,1); }
+  .service-card:hover .service-icon{ transform:scale(1.12) rotate(-6deg); }
+
+  /* ===== ABOUT ===== */
+  .about{ background:var(--ink); color:var(--paper); }
+  .about .section-head p{ color:#B7C4C1; }
+  .about .eyebrow{ color:var(--gold); }
+  .about .eyebrow::before{ background:var(--gold); }
+  .about-grid{ display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start; }
+  .about-copy p{ color:#C4D0CD; font-size:15.5px; margin-bottom:20px; }
+  .mv-cards{ display:flex; flex-direction:column; gap:1px; background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.12); }
+  .mv-card{ background:#16262F; padding:32px; }
+  .mv-card .eyebrow{ margin-bottom:14px; }
+  .mv-card p{ color:#C4D0CD; font-size:15px; }
+
+  /* ===== WHY CHOOSE ===== */
+  .why-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:32px; }
+  .why-card{ border-top:2px solid var(--ink); padding-top:22px; }
+  .why-num{ font-family:var(--mono); font-size:12px; color:var(--coral); display:block; margin-bottom:16px; }
+  .why-card h4{ font-size:18px; margin-bottom:10px; font-weight:600; }
+  .why-card p{ font-size:14px; color:#465156; }
+
+  /* ===== BRANDS ===== */
+  .brands-section{ background:var(--mist); }
+  .brands-grid{ display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+  .brand-card{
+    background:var(--paper-card); border:1px solid var(--mist-line); padding:44px;
+    display:flex; flex-direction:column; justify-content:space-between; min-height:260px;
+    transition:transform .3s ease, box-shadow .3s ease;
+  }
+  .brand-card:hover{ transform:translateY(-4px); box-shadow:0 18px 40px -18px rgba(16,32,42,0.25); }
+  .brand-tag{ font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--teal); }
+  .brand-card h3{ font-size:27px; margin:16px 0 14px; }
+  .brand-card p{ color:#465156; font-size:14.5px; margin-bottom:24px; }
+  .brand-link{ font-family:var(--mono); font-size:12.5px; text-transform:uppercase; letter-spacing:.05em; display:inline-flex; align-items:center; gap:8px; color:var(--ink); }
+  .brand-link:hover{ color:var(--coral); }
+
+  /* ===== EVENTS ===== */
+  .events-scroll{ display:flex; gap:22px; overflow-x:auto; padding-bottom:14px; scrollbar-width:thin; }
+  .events-scroll::-webkit-scrollbar{ height:6px; }
+  .events-scroll::-webkit-scrollbar-thumb{ background:var(--mist-line); border-radius:4px; }
+  .event-card{
+    flex:0 0 300px; background:var(--paper-card); border:1px solid var(--mist-line);
+    padding:0; display:flex; flex-direction:column;
+    transition:transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .4s ease;
+  }
+  .event-card:hover{ transform:translateY(-8px); box-shadow:0 26px 50px -22px rgba(16,32,42,0.28); }
+  .event-banner{
+    height:120px; background:linear-gradient(135deg, var(--teal), var(--teal-deep));
+    position:relative; overflow:hidden;
+  }
+  .event-card:nth-child(2) .event-banner{ background:linear-gradient(135deg, var(--coral), #9c331f); }
+  .event-card:nth-child(3) .event-banner{ background:linear-gradient(135deg, var(--gold), #8a6a26); }
+  .event-card:nth-child(4) .event-banner{ background:linear-gradient(135deg, var(--ink), var(--teal-deep)); }
+  .event-card:nth-child(5) .event-banner{ background:linear-gradient(135deg, var(--teal), var(--coral)); }
+  .event-banner::after{
+    content:""; position:absolute; inset:0;
+    background-image:radial-gradient(circle, rgba(255,255,255,0.18) 1px, transparent 1px);
+    background-size:14px 14px;
+    transition:transform .6s ease;
+  }
+  .event-card:hover .event-banner::after{ transform:scale(1.15); }
+  .event-status{
+    position:absolute; top:14px; right:14px; background:var(--paper); color:var(--ink);
+    font-family:var(--mono); font-size:10px; text-transform:uppercase; letter-spacing:.05em;
+    padding:5px 10px; border-radius:2px;
+  }
+  .event-body{ padding:24px; flex:1; display:flex; flex-direction:column; }
+  .event-date{ font-family:var(--mono); font-size:11.5px; color:var(--coral); letter-spacing:.04em; }
+  .event-body h4{ font-size:18px; margin:12px 0 10px; line-height:1.28; }
+  .event-loc{
+    font-family:var(--mono); font-size:11.5px; color:#5B6B72; margin-top:auto; padding-top:16px;
+    border-top:1px solid var(--mist-line); display:flex; align-items:center; justify-content:space-between;
+  }
+  .event-loc .event-arrow{ opacity:0; transform:translateX(-4px); transition:all .3s ease; color:var(--coral); }
+  .event-card:hover .event-loc .event-arrow{ opacity:1; transform:translateX(0); }
+
+  /* ===== PARTNERS ===== */
+  .partners-marquee{
+    overflow:hidden; border-top:1px solid var(--mist-line); border-bottom:1px solid var(--mist-line);
+    padding:8px 0; -webkit-mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  }
+  .partners-track{
+    display:inline-flex; gap:0; animation:partnersScroll 38s linear infinite;
+  }
+  .partners-marquee:hover .partners-track{ animation-play-state:paused; }
+  .partner-chip{
+    flex:0 0 auto; padding:28px 40px; display:flex; align-items:center; justify-content:center;
+    font-family:var(--mono); font-size:14px; letter-spacing:.04em; color:#5B6B72; text-align:center;
+    filter:grayscale(1); opacity:.7; transition:all .3s ease; border-right:1px solid var(--mist-line);
+  }
+  .partner-chip:hover{ filter:none; opacity:1; color:var(--teal); transform:translateY(-2px); }
+  @keyframes partnersScroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+
+  /* ===== TESTIMONIALS ===== */
+  .testimonial-section{ background:var(--ink); color:var(--paper); }
+  .testimonial-section .eyebrow{ color:var(--gold); }
+  .testimonial-section .eyebrow::before{ background:var(--gold); }
+  .testimonial-track{ display:flex; gap:24px; overflow-x:auto; padding-bottom:10px; }
+  .t-card{
+    position:relative; overflow:hidden;
+    flex:0 0 380px; background:#16262F; border:1px solid rgba(255,255,255,0.1);
+    padding:32px; display:flex; flex-direction:column; justify-content:space-between; min-height:260px;
+    transition:transform .35s cubic-bezier(.2,.8,.2,1), border-color .35s ease;
+  }
+  .t-card:hover{ transform:translateY(-6px); border-color:rgba(201,154,62,0.4); }
+  .t-card::before{
+    content:"“"; position:absolute; top:-28px; right:14px; font-family:var(--display);
+    font-size:140px; color:rgba(255,255,255,0.05); line-height:1; pointer-events:none;
+  }
+  .t-quote{ font-family:var(--display); font-style:italic; font-size:18px; line-height:1.5; color:#EAEFEC; position:relative; z-index:1; }
+  .t-meta{ margin-top:24px; padding-top:18px; border-top:1px solid rgba(255,255,255,0.1); }
+  .t-name{ font-weight:600; font-size:14.5px; }
+  .t-role{ font-family:var(--mono); font-size:11.5px; color:#9FB3AE; margin-top:3px; }
+
+  /* ===== CTA BANNER ===== */
+  .cta-banner{ background:var(--coral); color:#fff; }
+  .cta-banner .wrap{ padding:70px 32px; display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap; }
+  .cta-banner h2{ color:#fff; font-size:clamp(26px,3vw,36px); max-width:560px; }
+  .cta-banner .btn-solid{ background:var(--ink); border-color:var(--ink); }
+  .cta-banner .btn-solid::before{ background:#fff; }
+  .cta-banner .btn-solid:hover{ color:var(--ink); border-color:#fff; box-shadow:0 14px 28px -14px rgba(0,0,0,0.35); }
+
+  /* ===== FOOTER ===== */
+  footer{ background:var(--ink); color:#9FB3AE; padding:80px 0 28px; }
+  .footer-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1.2fr; gap:40px; padding-bottom:56px; border-bottom:1px solid rgba(255,255,255,0.1); }
+  .footer-logo{ color:var(--paper); font-family:var(--display); font-size:20px; margin-bottom:16px; }
+  .footer-about{ font-size:14px; line-height:1.7; max-width:280px; }
+  .footer-col h5{ font-family:var(--mono); font-size:11.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--gold); margin-bottom:18px; }
+  .footer-col ul li{ margin-bottom:10px; }
+  .footer-col ul li a{ font-size:14px; transition:color .2s; }
+  .footer-col ul li a:hover{ color:var(--paper); }
+  .footer-bottom{ display:flex; justify-content:space-between; align-items:center; padding-top:26px; flex-wrap:wrap; gap:14px; font-size:13px; }
+  .footer-social a{ margin-left:16px; }
+  .footer-social a:hover{ color:var(--paper); }
+
+  /* ===== REVEAL ===== */
+  .reveal{ opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.is-visible{ opacity:1; transform:translateY(0); }
+
+  @media (prefers-reduced-motion: reduce){
+    .pulse, .globe-spin, .ticker-track{ animation:none !important; }
+    .reveal{ opacity:1; transform:none; transition:none; }
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width:980px){
+    .hero .wrap{ grid-template-columns:1fr; }
+    .globe-wrap{ order:-1; margin-bottom:20px; }
+    .about-grid{ grid-template-columns:1fr; }
+    .why-grid{ grid-template-columns:repeat(2,1fr); }
+    .services-grid{ grid-template-columns:1fr; }
+    .brands-grid{ grid-template-columns:1fr; }
+    .partners-grid{ grid-template-columns:repeat(3,1fr); }
+    .footer-grid{ grid-template-columns:1fr 1fr; }
+  }
+  @media (max-width:720px){
+    nav.links{
+      position:fixed; top:0; right:0; height:100vh; width:78%; max-width:320px;
+      background:var(--paper); flex-direction:column; align-items:flex-start;
+      padding:100px 32px 32px; gap:26px; transform:translateX(100%); transition:transform .35s ease;
+      box-shadow:-10px 0 30px rgba(0,0,0,0.12); z-index:99;
+    }
+    nav.links.open{ transform:translateX(0); }
+    .menu-toggle{ display:block; z-index:101; }
+    .nav-cta .btn-line{ display:none; }
+    .why-grid{ grid-template-columns:1fr; }
+    .partners-grid{ grid-template-columns:repeat(2,1fr); }
+    .footer-grid{ grid-template-columns:1fr; }
+    .cta-banner .wrap{ flex-direction:column; align-items:flex-start; }
+    .hero-stats{ gap:28px; }
+  }
+</style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- ===== TOP BAR ===== -->
+<div class="topbar">
+  <div class="wrap">
+    <div class="topbar-contacts">
+      <a href="tel:+919870687264">+91 98706 87264</a>
+      <a href="tel:+919831650430">+91 98316 50430</a>
+      <a href="mailto:info@veridonglobal.com">info@veridonglobal.com</a>
+    </div>
+    <div class="topbar-social">
+      <a href="https://www.linkedin.com/company/veridon-global/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== NAV ===== -->
+<header class="nav">
+  <div class="wrap">
+    <a href="#" class="logo">
+      <svg class="logo-mark" viewBox="0 0 40 40" fill="none">
+        <circle cx="20" cy="20" r="18" stroke="#1F5C52" stroke-width="1.4"/>
+        <circle cx="20" cy="20" r="11" stroke="#1F5C52" stroke-width="1" opacity="0.5"/>
+        <circle cx="20" cy="8" r="2.4" fill="#D6482F"/>
+        <circle cx="31" cy="26" r="2.4" fill="#C99A3E"/>
+        <circle cx="9" cy="26" r="2.4" fill="#1F5C52"/>
+      </svg>
+      <span class="logo-text">Veridon <span>Global</span></span>
+    </a>
+    <nav class="links" id="navLinks">
+      <a href="#services">Events</a>
+      <a href="#brands">Sponsor</a>
+      <a href="#events">Upcoming</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a href="#contact" class="btn btn-solid">Get In Touch <span class="btn-arrow">→</span></a>
+    </nav>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-mesh"><span></span><span></span><span></span></div>
+  <div class="wrap">
+    <div class="hero-copy reveal">
+      <p class="eyebrow">Healthcare &amp; Life Sciences Conferences</p>
+      <h1>Where healthcare's<br>evidence becomes <em>action.</em></h1>
+      <p>Veridon Global designs conferences, boardrooms, and roundtables that bring together the researchers, executives, and innovators shaping the future of healthcare — from real-world evidence to immuno-oncology.</p>
+      <div class="hero-ctas">
+        <a href="#events" class="btn btn-solid">View Upcoming Events <span class="btn-arrow">→</span></a>
+        <a href="#contact" class="btn btn-line">Become a Sponsor</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>10+</strong><span>Years of Experience</span></div>
+        <div><strong>Global</strong><span>Network of Experts</span></div>
+        <div><strong>RWE ·  IO</strong><span>Core Therapeutic Focus</span></div>
+      </div>
+    </div>
+
+    <div class="globe-wrap reveal">
+      <svg viewBox="0 0 420 420" width="100%" style="max-width:440px;">
+        <g class="globe-spin">
+          <circle class="globe-outline" cx="210" cy="210" r="150"/>
+          <ellipse class="globe-lat" cx="210" cy="210" rx="150" ry="55"/>
+          <ellipse class="globe-lat" cx="210" cy="210" rx="150" ry="105"/>
+          <ellipse class="globe-lat" cx="210" cy="210" rx="90" ry="150"/>
+          <ellipse class="globe-lat" cx="210" cy="210" rx="40" ry="150"/>
+        </g>
+        <!-- connecting lines -->
+        <path class="globe-line" d="M210,210 Q150,120 96,88"/>
+        <path class="globe-line" d="M210,210 Q270,120 300,74"/>
+        <path class="globe-line" d="M210,210 Q140,270 90,320"/>
+        <path class="globe-line" d="M210,210 Q290,260 330,300"/>
+        <path class="globe-line" d="M210,210 Q230,300 210,352"/>
+        <!-- center node -->
+        <circle cx="210" cy="210" r="4" fill="#10202A"/>
+        <!-- city nodes -->
+        <circle class="node-dot pulse" cx="96" cy="88" r="3"/>
+        <text class="node-label" x="66" y="76">BOSTON</text>
+
+        <circle class="node-dot pulse d2" cx="300" cy="74" r="3"/>
+        <text class="node-label" x="272" y="62">LONDON</text>
+
+        <circle class="node-dot pulse d3" cx="90" cy="320" r="3"/>
+        <text class="node-label" x="46" y="340">PHILADELPHIA</text>
+
+        <circle class="node-dot pulse d4" cx="330" cy="300" r="3"/>
+        <text class="node-label" x="336" y="296">BASEL</text>
+
+        <circle class="node-dot pulse d5" cx="210" cy="352" r="3"/>
+        <text class="node-label" x="182" y="374">ROME</text>
+      </svg>
+      <p class="globe-caption">18.5204° N, 73.8567° E — HQ PUNE, INDIA</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TICKER ===== -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span>Evidence 360 Summit — Basel 2027</span>
+    <span>Immuno-Oncology &amp; Biomarker Summit — Philadelphia 2026</span>
+    <span>EuroPotent 360 Summit — Rome 2027</span>
+    <span>Sponsorship opportunities open</span>
+    <span>Evidence 360 Summit — Basel 2027</span>
+    <span>Immuno-Oncology &amp; Biomarker Summit — Philadelphia 2026</span>
+    <span>EuroPotent 360 Summit — Rome 2027</span>
+    <span>Sponsorship opportunities open</span>
+  </div>
+</div>
+
+<!-- ===== SERVICES ===== -->
+<section class="section-pad" id="services">
+  <span class="side-label">18.5204°N 73.8567°E — PUNE HQ</span>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">What We Do</p>
+      <h2>Full-suite event planning, built for healthcare's decision-makers.</h2>
+      <p>From concept to post-event analysis, we manage every detail with precision — so your conference delivers substance, not just attendance.</p>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="services-grid reveal">
+      <div class="service-card">
+        <span class="service-index">01 / In-Person</span>
+        <svg class="service-icon" viewBox="0 0 36 36" fill="none"><rect x="4" y="8" width="28" height="22" rx="1" stroke="#1F5C52" stroke-width="1.4"/><path d="M4 14H32" stroke="#1F5C52" stroke-width="1.4"/><circle cx="12" cy="20" r="2" fill="#D6482F"/><path d="M17 20H27" stroke="#1F5C52" stroke-width="1.2"/><path d="M17 25H24" stroke="#1F5C52" stroke-width="1.2" opacity=".6"/></svg>
+        <h3>In-Person Events</h3>
+        <p>End-to-end conference delivery — program design, speaker acquisition, venue logistics, and on-site coordination for a seamless, high-impact experience.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-index">02 / Closed-Door</span>
+        <svg class="service-icon" viewBox="0 0 36 36" fill="none"><circle cx="18" cy="12" r="4" stroke="#1F5C52" stroke-width="1.4"/><circle cx="8" cy="24" r="3" stroke="#1F5C52" stroke-width="1.4" opacity=".6"/><circle cx="28" cy="24" r="3" stroke="#1F5C52" stroke-width="1.4" opacity=".6"/><path d="M18 16V22M18 22L8 27M18 22L28 27" stroke="#D6482F" stroke-width="1.2"/></svg>
+        <h3>Boardroom Meetings</h3>
+        <p>Exclusive, closed-door sessions customized to your goals and audience — direct engagement with key decision-makers for stronger, focused ROI.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-index">03 / Discussion-Led</span>
+        <svg class="service-icon" viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="13" stroke="#1F5C52" stroke-width="1.4"/><circle cx="18" cy="12" r="2" fill="#D6482F"/><circle cx="12" cy="22" r="2" fill="#C99A3E"/><circle cx="24" cy="22" r="2" fill="#1F5C52"/><path d="M18 12L12 22M18 12L24 22M12 22H24" stroke="#1F5C52" stroke-width="1"/></svg>
+        <h3>Roundtables</h3>
+        <p>Structured discussions with a select group of industry professionals — built for thought leadership, knowledge exchange, and qualified lead generation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section class="section-pad about" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="reveal">
+        <p class="eyebrow">About Veridon Global</p>
+        <h2 style="color:#fff; font-size:clamp(26px,3vw,36px); margin-top:16px;">A decade of bringing healthcare's sharpest minds into the same room.</h2>
+        <div class="about-copy" style="margin-top:24px;">
+          <p>We're at the forefront of organizing leading healthcare and life sciences conferences — the go-to platform for decision-makers, researchers, and pioneers to collaborate on the challenges facing the industry today.</p>
+          <p>Every event we build is content-led first: real research, real data, real conversations — with the logistics handled so participants can focus on what matters.</p>
+        </div>
+      </div>
+      <div class="mv-cards reveal">
+        <div class="mv-card">
+          <p class="eyebrow">Our Vision</p>
+          <p>To be the catalyst for meaningful change in healthcare and life sciences — where every conference sparks a discovery, a partnership, or a shift that improves patient outcomes.</p>
+        </div>
+        <div class="mv-card">
+          <p class="eyebrow">Our Mission</p>
+          <p>To design and deliver content-led events that bring decision-makers, researchers, and innovators together to exchange evidence, forge partnerships, and move healthcare forward.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHY CHOOSE US ===== -->
+<section class="section-pad">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Why Choose Us</p>
+      <h2>Built on expertise. Measured in outcomes.</h2>
+    </div>
+    <div class="why-grid reveal">
+      <div class="why-card">
+        <span class="why-num">Expertise</span>
+        <h4>Unmatched Experience</h4>
+        <p>Over a decade of experience crafting content-driven conferences that shape the future of healthcare.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-num">Insight</span>
+        <h4>Actionable Programs</h4>
+        <p>Curated agendas that tackle today's challenges and anticipate tomorrow's opportunities.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-num">Reach</span>
+        <h4>A Global Network</h4>
+        <p>Connecting professionals worldwide to build lasting partnerships and drive meaningful change.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-num">Collaboration</span>
+        <h4>Collaborative Innovation</h4>
+        <p>A space for learning, networking, and sparking the ideas that advance the industry.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BRANDS ===== -->
+<section class="section-pad brands-section" id="brands">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Our Brands</p>
+      <h2>Two flagship platforms. One standard of rigor.</h2>
+    </div>
+    <div class="brands-grid reveal">
+      <div class="brand-card">
+        <div>
+          <span class="brand-tag">RWE · Market Access · Pricing</span>
+          <h3>Evidence 360 Summit</h3>
+          <p>The definitive gathering for real-world evidence, market access, and pricing strategy in healthcare — connecting payers, pharma, and data leaders.</p>
+        </div>
+        <a href="#" class="brand-link">Visit Summit <span class="btn-arrow">→</span></a>
+      </div>
+      <div class="brand-card">
+        <div>
+          <span class="brand-tag">Immuno-Oncology · Biomarkers</span>
+          <h3>Immuno-Oncology &amp; Biomarker Summit</h3>
+          <p>Bringing together scientists and clinicians advancing immunotherapy — from antibody engineering to regulatory strategy and cross-platform collaboration.</p>
+        </div>
+        <a href="#" class="brand-link">Visit Summit <span class="btn-arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EVENTS ===== -->
+<section class="section-pad" id="events">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Upcoming Events</p>
+      <h2>Where to find us next.</h2>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="events-scroll reveal">
+      <div class="event-card">
+        <div class="event-banner"><span class="event-status">Open</span></div>
+        <div class="event-body">
+          <span class="event-date">19–20 OCT 2026</span>
+          <h4>2nd Immuno-Oncology &amp; Biomarker Summit</h4>
+          <span class="event-loc"><span>📍 Philadelphia, USA</span><span class="event-arrow">→</span></span>
+        </div>
+      </div>
+      <div class="event-card">
+        <div class="event-banner"><span class="event-status">Coming Soon</span></div>
+        <div class="event-body">
+          <span class="event-date">11–12 MAR 2027</span>
+          <h4>3rd Edition Immuno-Oncology &amp; Biomarker Summit</h4>
+          <span class="event-loc"><span>📍 Basel, Switzerland</span><span class="event-arrow">→</span></span>
+        </div>
+      </div>
+      <div class="event-card">
+        <div class="event-banner"><span class="event-status">Coming Soon</span></div>
+        <div class="event-body">
+          <span class="event-date">20–21 MAY 2027</span>
+          <h4>3rd Annual EuroPotent 360 Summit</h4>
+          <span class="event-loc"><span>📍 Rome, Italy</span><span class="event-arrow">→</span></span>
+        </div>
+      </div>
+      <div class="event-card">
+        <div class="event-banner"><span class="event-status">Coming Soon</span></div>
+        <div class="event-body">
+          <span class="event-date">11–12 MAR 2027</span>
+          <h4>3rd Annual Evidence 360: RWE, Market Access &amp; Pricing Summit</h4>
+          <span class="event-loc"><span>📍 Basel, Switzerland</span><span class="event-arrow">→</span></span>
+        </div>
+      </div>
+      <div class="event-card">
+        <div class="event-banner"><span class="event-status">Coming Soon</span></div>
+        <div class="event-body">
+          <span class="event-date">JUNE 2027</span>
+          <h4>3rd Annual Evidence 360 Summit — HEOR</h4>
+          <span class="event-loc"><span>📍 Philadelphia, USA</span><span class="event-arrow">→</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PARTNERS ===== -->
+<section class="section-pad" style="padding-top:0;">
+  <div class="wrap">
+    <p class="eyebrow reveal" style="margin-bottom:30px;">Trusted By Industry Leaders</p>
+  </div>
+  <div class="partners-marquee reveal">
+    <div class="partners-track">
+      <div class="partner-chip">Truveta</div>
+      <div class="partner-chip">Premier</div>
+      <div class="partner-chip">HealthVerity</div>
+      <div class="partner-chip">Forian</div>
+      <div class="partner-chip">Numerus</div>
+      <div class="partner-chip">Prescient</div>
+      <div class="partner-chip">OpenHealth</div>
+      <div class="partner-chip">Whyze Health</div>
+      <div class="partner-chip">NTT Data</div>
+      <div class="partner-chip">Marksman</div>
+      <div class="partner-chip">DocNexus</div>
+      <div class="partner-chip">Magnolia</div>
+      <div class="partner-chip">Truveta</div>
+      <div class="partner-chip">Premier</div>
+      <div class="partner-chip">HealthVerity</div>
+      <div class="partner-chip">Forian</div>
+      <div class="partner-chip">Numerus</div>
+      <div class="partner-chip">Prescient</div>
+      <div class="partner-chip">OpenHealth</div>
+      <div class="partner-chip">Whyze Health</div>
+      <div class="partner-chip">NTT Data</div>
+      <div class="partner-chip">Marksman</div>
+      <div class="partner-chip">DocNexus</div>
+      <div class="partner-chip">Magnolia</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="section-pad testimonial-section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">What Attendees Say</p>
+      <h2 style="color:#fff;">Conversations that leave a mark.</h2>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="testimonial-track reveal">
+      <div class="t-card">
+        <p class="t-quote">"It was a great experience attending the Evidence 360 Summit in Philadelphia. We would be happy to register for the next edition."</p>
+        <div class="t-meta">
+          <div class="t-name">Mahek Chattrapati</div>
+          <div class="t-role">CEO, DocNexus</div>
+        </div>
+      </div>
+      <div class="t-card">
+        <p class="t-quote">"The single-track format was highly effective, allowing for meaningful focus without disruption. The venue choice was superb."</p>
+        <div class="t-meta">
+          <div class="t-name">John Bridgeman</div>
+          <div class="t-role">Chief Scientific Officer &amp; Co-founder, ImmunoKey</div>
+        </div>
+      </div>
+      <div class="t-card">
+        <p class="t-quote">"A well-organized summit with a strong line-up of expert speakers. The team was responsive throughout, providing a professional backdrop for dialogue."</p>
+        <div class="t-meta">
+          <div class="t-name">Joannes Van Cann</div>
+          <div class="t-role">Business Development &amp; Strategy Manager, OHMX.Bio</div>
+        </div>
+      </div>
+      <div class="t-card">
+        <p class="t-quote">"A fantastic opportunity to reconnect and get energized by the potential of new immunotherapies — high-level technical depth throughout."</p>
+        <div class="t-meta">
+          <div class="t-name">Gael Cane</div>
+          <div class="t-role">Senior Scientist, Translational — Scancell</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA BANNER ===== -->
+<section class="cta-banner" id="contact">
+  <div class="wrap">
+    <h2>Ready to join the Veridon Global community?</h2>
+    <a href="mailto:info@veridonglobal.com" class="btn btn-solid">Reach Out Now <span class="btn-arrow">→</span></a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Veridon Global</div>
+        <p class="footer-about">Organizing leading healthcare and life sciences conferences that inspire progress, connect decision-makers, and address global challenges.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#contact">Become a Sponsor</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Help Center</h5>
+        <ul>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms &amp; Conditions</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Get In Touch</h5>
+        <ul>
+          <li>HD-004, WeWork Amanora Crest,<br>Amanora Park Town, Hadapsar,<br>Pune, Maharashtra 411028</li>
+          <li><a href="mailto:info@veridonglobal.com">info@veridonglobal.com</a></li>
+          <li><a href="tel:+919870687264">+91 98706 87264</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Veridon Global Pvt. Ltd. All rights reserved.</span>
+      <span class="footer-social"><a href="https://www.linkedin.com/company/veridon-global/" target="_blank" rel="noopener">LinkedIn</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // mobile nav toggle
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  menuToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  // scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => io.observe(el));
+
+  // scroll progress bar + nav glass shadow
+  const progressBar = document.getElementById('scrollProgress');
+  const navEl = document.querySelector('header.nav');
+  const onScroll = () => {
+    const h = document.documentElement;
+    const scrolled = h.scrollTop;
+    const max = h.scrollHeight - h.clientHeight;
+    progressBar.style.width = (max > 0 ? (scrolled / max) * 100 : 0) + '%';
+    navEl.classList.toggle('scrolled', scrolled > 12);
+  };
+  document.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // subtle cursor-reactive parallax on hero mesh (fine pointers only)
+  if (window.matchMedia('(pointer:fine)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const mesh = document.querySelector('.hero-mesh');
+    const heroSection = document.querySelector('.hero');
+    if (mesh && heroSection) {
+      heroSection.addEventListener('mousemove', (e) => {
+        const x = (e.clientX / window.innerWidth - 0.5) * 24;
+        const y = (e.clientY / window.innerHeight - 0.5) * 24;
+        mesh.style.transform = `translate(${x}px, ${y}px)`;
+      });
+    }
+  }
+</script>
+
+</body>
+</html>
